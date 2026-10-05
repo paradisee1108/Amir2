@@ -20,9 +20,8 @@ ARG NPM_REGISTRY
 RUN apk add --no-cache python3 make g++ linux-headers
 
 COPY package.json ./
-RUN npm ci && \
-    npm install \
-    --registry="${NPM_REGISTRY}" \
+RUN npm install \
+    --registry="https://registry.npmjs.org/" \
     --fetch-retries=5 \
     --fetch-retry-factor=2 \
     --fetch-retry-mintimeout=10000 \
